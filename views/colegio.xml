@@ -1,0 +1,94 @@
+<odoo>
+<data>
+
+<record model="ir.ui.view" id="colegio_tree_view">
+<field name="name">colegio.tree</field>
+<field name="model">colegios.colegio</field>
+<field name="arch" type="xml">
+<tree string="Colegio Tree">
+<field name="nombre"/>
+<field name="responsable_id"/>
+</tree>
+</field>
+</record>
+
+<record model="ir.ui.view" id="colegio_form_view">
+<field name="name">colegio.form</field>
+<field name="model">colegios.colegio</field>
+<field name="arch" type="xml">
+<form string="Formulario de Colegio">
+<sheet>
+<group>
+<field name="nombre"/>
+<field name="descripcion"/>
+<field name="responsable_id"/>
+</group>
+<notebook>
+<page string="Asignaturas">
+<field name="asignatura_ids">
+<tree string="Asignaturas registrados">
+<field name="titulo"/>
+<field name="profesor_id"/>
+</tree>
+</field>
+</page>
+</notebook>
+</sheet>
+</form>
+</field>
+</record>
+
+
+<record model="ir.actions.act_window" id="colegio_list_action">
+<field name="name">Colegios</field>
+<field name="res_model">colegios.colegio</field>
+<!--<field name="view_type">form</field>-->
+<field name="view_mode">tree,form</field>
+<field name="context" eval="{'search_default_my_colegio': 1}"/>
+<field name="help" type="html">
+<p class="oe_view_nocontent_smiling_face">Crear el primer colegio
+</p>
+</field>
+</record>
+
+
+<record model="ir.ui.view" id="colegio_search_view">
+<field name="name">colegio.search</field>
+<field name="model">colegios.colegio</field>
+<field name="arch" type="xml">
+<search>
+<field name="nombre"/>
+<field name="descripcion"/>
+</search>
+</field>
+</record>
+
+<record model="ir.ui.view" id="colegio_search_view">
+<field name="name">colegio.search</field>
+<field name="model">colegios.colegio</field>
+<field name="arch" type="xml">
+<search>
+<field name="nombre"/>
+<field name="descripcion"/>
+</search>
+</field>
+</record>
+
+<!-- top level menu: no parent -->
+<menuitem id="main_colegios_menu" name="Colegio"/>
+<!-- A first level in the left side menu is needed
+before using action= attribute -->
+<menuitem id="colegios_menu" name="Colegios"
+parent="main_colegios_menu"/>
+<!-- the following menuitem should appear *after*
+its parent openacademy_menu and *after* its
+action course_list_action -->
+<menuitem id="colegio_menu" name="Colegios"
+parent="colegios_menu"
+action="colegio_list_action"/>
+<!-- Full id location:
+action="openacademy.course_list_action"
+It is not required when it is the same module -->
+
+</data>
+</odoo>

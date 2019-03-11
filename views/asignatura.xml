@@ -1,0 +1,45 @@
+<odoo>
+<data>
+
+<record model="ir.ui.view" id="asignatura_tree_view">
+<field name="name">asignatura.tree</field>
+<field name="model">colegios.asignatura</field>
+<field name="arch" type="xml">
+<tree string="Asignatura Tree">
+<field name="titulo"/>
+<field name="duracion" />
+</tree>
+</field>
+</record>
+
+<record model="ir.ui.view" id="asignatura_form_view">
+<field name="name">asignatura.form</field>
+<field name="model">colegios.asignatura</field>
+<field name="arch" type="xml">
+<form string="Formulario de Viajes">
+<sheet>
+<group>
+<field name="titulo"/>
+<field name="fecha_inicio"/>
+<field name="duracion"/>
+<field name="plazas"/>
+</group>
+</sheet>
+</form>
+</field>
+</record>
+
+
+<record model="ir.actions.act_window" id="asignatura_list_action">
+<field name="name">Asignatura</field>
+<field name="res_model">colegios.asignatura</field>
+<field name="view_type">form</field>
+<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="asignatura_menu" name="Asignaturas"
+parent="colegios_menu"
+action="asignatura_list_action"/>
+
+</data>
+</odoo>

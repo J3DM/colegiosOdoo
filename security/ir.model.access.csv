@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_colegios_colegio,colegios.colegio,model_colegios_colegio,,1,1,1,1
+access_colegios_asignatura,colegios.asignatura,model_colegios_asignatura,,1,1,1,1
